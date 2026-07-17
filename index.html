@@ -2,42 +2,54 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saham Gerai Hisana</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Buku Cabang — Saham Hisana</title>
+  
+  <!-- Favicon (Opsional, bisa diubah) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+  
   <style>
-    /* Reset style bawaan browser */
+    /* Reset margin & padding agar iframe penuh */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* Mencegah double scrollbar di browser utama */
-      background-color: #f3fbf6;
+      overflow: hidden; /* Mencegah scrollbar ganda */
+      background-color: #000000; /* Warna dasar gelap untuk menghindari flash putih saat loading */
     }
 
-    /* Pembungkus Iframe khusus agar sangat responsif di HP */
-    .dashboard-container {
-      position: relative;
-      width: 100%;
-      height: 100vh; /* Standar layar desktop */
-      height: 100svh; /* Akurat untuk browser HP agar tidak kepotong bar url */
-      overflow: hidden;
-      -webkit-overflow-scrolling: touch; /* Scroll halus di perangkat iOS */
-    }
-
-    .dashboard-container iframe {
+    /* Pengaturan iframe agar full screen dan responsif */
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
       display: block;
     }
+
+    /* Animasi loading sederhana sebelum iframe selesai dimuat */
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #8e8e8e;
+      font-family: monospace;
+      font-size: 14px;
+      z-index: -1; /* Berada di belakang iframe */
+    }
   </style>
 </head>
 <body>
 
-  <div class="dashboard-container">
-    <iframe src="https://script.google.com/macros/s/AKfycbzU6wB-b08rUr0Yk8V9AvXeFUt6Zom3w0yZcRR8natCowcuMRq9_CLo3dvw5qbDrpuOnA/exec"></iframe>
-  </div>
+  <!-- Teks loading yang akan tertutup otomatis saat iframe terbuka -->
+  <div class="loading">Memuat aplikasi...</div>
+
+  <!-- Iframe yang mengarah ke Google Apps Script Anda -->
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbzow7TcsX6i9Anv24PKciFcLW0cq7Qf1JKq8HjgjWuAjoQg_4pUI-KRT-rol5Y3zqZG/exec" 
+    allowfullscreen="true">
+  </iframe>
 
 </body>
 </html>
